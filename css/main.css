@@ -1,0 +1,405 @@
+:root {
+  --container-bg-color: #333;
+  --left-bg-color: rgba(230, 107, 199, 0.8);
+  --left-button-hover-color: rgba(0, 255, 191, 0.3);
+  --right-bg-color: rgba(62, 60, 65, 0.7);
+  --right-button-hover-color: rgba(230, 107, 199, 0.8);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100');
+
+html, body {
+  padding:0;
+  margin:0;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#main h1 {
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+#main .button {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  height: 3.5rem;
+  padding-top: 1rem;
+  width: 15rem;
+  text-align: center;
+  /* color: #0ffbf9; */
+  color: #fff;
+  /* border: #0ffbf9 solid 0.2rem; */
+  border: #fff solid 0.2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+#main .button::before {
+  content: attr(data-text);
+  position: absolute;
+  /* top: 0; */
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 #ff00b4;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+#main .button::after {
+  content: attr(data-text);
+  position: absolute;
+  /* top: 0; */
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 #00ffbc, 2px 2px #ff00b4;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+#main .split.left .button:hover {
+  background-color: var(--left-button-hover-color);
+  border-color: var(--left-button-hover-color);
+}
+
+#main .split.right .button:hover {
+  background-color: var(--right-button-hover-color);
+  border-color: var(--right-button-hover-color);
+}
+
+#main .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--container-bg-color);
+}
+
+#main .split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#main .split.left {
+  left:0;
+  background: url('../media/dev.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+#main .split.left:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--left-bg-color);
+}
+
+#main .split.right {
+  right:0;
+  background: url('../media/dj.jpg') center center no-repeat;
+  background-size: cover;
+}
+
+#main .split.right:before {
+  position:absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--right-bg-color);
+}
+
+#main .split.left, .split.right, .split.right:before, .split.left:before {
+  transition: var(--speed) all ease-in-out;
+}
+
+#main .hover-left .left {
+  width: var(--hover-width);
+}
+
+#main .hover-left .right {
+  width: var(--other-width);
+}
+
+#main .hover-left .right:before {
+  z-index: 2;
+}
+
+#main .hover-right .right {
+  width: var(--hover-width);
+}
+
+#main .hover-right .left {
+  width: var(--other-width);
+}
+
+#main .hover-right .left:before {
+  z-index: 2;
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  text-shadow: -2px 0 #ff00b4;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  left: -2px;
+  text-shadow: -2px 0 #00ffbc, 2px 2px #ff00b4;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(50px, 9999px, 97px, 0);
+    transform: skew(0.62deg);
+  }
+  5% {
+    clip: rect(73px, 9999px, 20px, 0);
+    transform: skew(0.22deg);
+  }
+  10% {
+    clip: rect(7px, 9999px, 83px, 0);
+    transform: skew(0.26deg);
+  }
+  15% {
+    clip: rect(46px, 9999px, 54px, 0);
+    transform: skew(0.38deg);
+  }
+  20% {
+    clip: rect(63px, 9999px, 33px, 0);
+    transform: skew(0.19deg);
+  }
+  25% {
+    clip: rect(19px, 9999px, 13px, 0);
+    transform: skew(0.06deg);
+  }
+  30% {
+    clip: rect(2px, 9999px, 76px, 0);
+    transform: skew(0.63deg);
+  }
+  35% {
+    clip: rect(86px, 9999px, 81px, 0);
+    transform: skew(0.42deg);
+  }
+  40% {
+    clip: rect(75px, 9999px, 87px, 0);
+    transform: skew(0.4deg);
+  }
+  45% {
+    clip: rect(87px, 9999px, 65px, 0);
+    transform: skew(0.04deg);
+  }
+  50% {
+    clip: rect(87px, 9999px, 15px, 0);
+    transform: skew(0.57deg);
+  }
+  55% {
+    clip: rect(38px, 9999px, 82px, 0);
+    transform: skew(0.57deg);
+  }
+  60% {
+    clip: rect(11px, 9999px, 19px, 0);
+    transform: skew(0.78deg);
+  }
+  65% {
+    clip: rect(8px, 9999px, 52px, 0);
+    transform: skew(0.68deg);
+  }
+  70% {
+    clip: rect(34px, 9999px, 64px, 0);
+    transform: skew(0.56deg);
+  }
+  75% {
+    clip: rect(63px, 9999px, 69px, 0);
+    transform: skew(0.26deg);
+  }
+  80% {
+    clip: rect(88px, 9999px, 78px, 0);
+    transform: skew(0.63deg);
+  }
+  85% {
+    clip: rect(94px, 9999px, 36px, 0);
+    transform: skew(0.18deg);
+  }
+  90% {
+    clip: rect(26px, 9999px, 12px, 0);
+    transform: skew(0.75deg);
+  }
+  95% {
+    clip: rect(74px, 9999px, 49px, 0);
+    transform: skew(0.07deg);
+  }
+  100% {
+    clip: rect(11px, 9999px, 23px, 0);
+    transform: skew(0.05deg);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(44px, 9999px, 45px, 0);
+    transform: skew(0.43deg);
+  }
+  5% {
+    clip: rect(12px, 9999px, 1px, 0);
+    transform: skew(0.05deg);
+  }
+  10% {
+    clip: rect(68px, 9999px, 99px, 0);
+    transform: skew(0.77deg);
+  }
+  15% {
+    clip: rect(42px, 9999px, 93px, 0);
+    transform: skew(0.52deg);
+  }
+  20% {
+    clip: rect(41px, 9999px, 12px, 0);
+    transform: skew(0.51deg);
+  }
+  25% {
+    clip: rect(48px, 9999px, 92px, 0);
+    transform: skew(0.24deg);
+  }
+  30% {
+    clip: rect(8px, 9999px, 37px, 0);
+    transform: skew(0.54deg);
+  }
+  35% {
+    clip: rect(75px, 9999px, 25px, 0);
+    transform: skew(0.92deg);
+  }
+  40% {
+    clip: rect(10px, 9999px, 44px, 0);
+    transform: skew(0.01deg);
+  }
+  45% {
+    clip: rect(92px, 9999px, 20px, 0);
+    transform: skew(0.31deg);
+  }
+  50% {
+    clip: rect(98px, 9999px, 82px, 0);
+    transform: skew(0.17deg);
+  }
+  55% {
+    clip: rect(8px, 9999px, 33px, 0);
+    transform: skew(0.57deg);
+  }
+  60% {
+    clip: rect(68px, 9999px, 21px, 0);
+    transform: skew(0.02deg);
+  }
+  65% {
+    clip: rect(99px, 9999px, 43px, 0);
+    transform: skew(0.28deg);
+  }
+  70% {
+    clip: rect(34px, 9999px, 77px, 0);
+    transform: skew(0.56deg);
+  }
+  75% {
+    clip: rect(99px, 9999px, 76px, 0);
+    transform: skew(0.04deg);
+  }
+  80% {
+    clip: rect(88px, 9999px, 99px, 0);
+    transform: skew(0.55deg);
+  }
+  85% {
+    clip: rect(56px, 9999px, 75px, 0);
+    transform: skew(0.2deg);
+  }
+  90% {
+    clip: rect(81px, 9999px, 81px, 0);
+    transform: skew(0.44deg);
+  }
+  95% {
+    clip: rect(8px, 9999px, 96px, 0);
+    transform: skew(0.65deg);
+  }
+  100% {
+    clip: rect(82px, 9999px, 6px, 0);
+    transform: skew(0.79deg);
+  }
+}
+
+  
+@media(max-width: 800px) {
+  #main h1 {
+    font-size: 2rem;
+  }
+
+  #main .button {
+    width: 12rem;
+  }
+}
+
+@media(max-height: 700px) {
+  #main .button {
+    top: 50%;
+  }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+  #main .button::before {
+    top: 20%;
+  }
+  #main .button::after {
+    top: 20%;
+  }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+
+    #main .button::before {
+      top: 20%;
+    }
+    #main .button::after {
+      top: 20%;
+    }    
+}
