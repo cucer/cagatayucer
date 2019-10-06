@@ -136,6 +136,12 @@ section.resume-section{
 section.resume-section .resume-item .resume-date{
     min-width:none;
 }
+
+section.resume-section .card{
+    border: 1px solid rgba(255,0,180, 0.2);
+}
+
+
 @media (min-width:768px){
     section.resume-section{
         min-height:100vh;
