@@ -31,7 +31,9 @@ html, body {
 }
 
 #main .button {
-  display: block;
+  /* display: block; */
+  display: inline-block;
+  border-radius: 12px;
   position: absolute;
   left: 50%;
   top: 45%;
@@ -39,9 +41,7 @@ html, body {
   padding-top: 1rem;
   width: 15rem;
   text-align: center;
-  /* color: #0ffbf9; */
   color: #fff;
-  /* border: #0ffbf9 solid 0.2rem; */
   border: #fff solid 0.2rem;
   font-size: 2rem;
   font-weight: bold;
@@ -361,7 +361,7 @@ html, body {
   
 @media(max-width: 800px) {
   #main h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   #main .button {
