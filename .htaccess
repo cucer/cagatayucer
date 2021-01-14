@@ -144730,13 +144730,6 @@ deny from 223.255.248.0/22
 deny from 223.255.252.0/23
 deny from 223.255.254.0/24
 deny from 223.255.255.0/24
-
-
-<Files 403.shtml>
-order allow,deny
-allow from all
-</Files>
-
 deny from 42.236.10.114
 deny from 42.236.10.125
 deny from 139.59.96.191
